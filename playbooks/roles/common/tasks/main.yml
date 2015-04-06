@@ -1,4 +1,9 @@
 ---
+- name: Common | Set hostname
+  hostname: name={{ server_hostname }}
+  sudo: yes
+  tags: common
+
 - name: Common | Update apt cache
   sudo: yes
   apt: update-cache=yes

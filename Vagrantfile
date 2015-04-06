@@ -10,8 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.ssh.forward_agent = true
 
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
+  # Create a private network, which allows host-only access to the machine using a specific IP.
   config.vm.network :private_network, ip: "192.168.111.222"
 
   #syncs entire project directory to ~/application on target machine
@@ -24,6 +23,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #provisions the environment
   config.vm.provision "ansible" do |ansible|
     ansible.raw_arguments = "-i playbooks/hosts"
-    ansible.playbook = "playbooks/mean.yml"
+    ansible.playbook = "playbooks/main.yml"
   end
+
+  config.vm.post_up_message = "
+    Your local development environment is set up.
+    Access the virtual machine with `vagrant ssh` command, or by ssh.
+  "
+
+  config.vm.hostname = "dev.slavcopost.com"
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.aliases = %w(www.dev.slavcopost.com)
 end

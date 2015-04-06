@@ -1,4 +1,5 @@
 ---
+server_hostname: dev.slavcopost.com
 node_port: 3000
 web_project_name: demo
 express_project_name: demo
