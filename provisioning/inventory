@@ -1,0 +1,2 @@
+# Static inventory file
+# see ansible.inventory_path words in Vagrantfile for more details

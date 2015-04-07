@@ -1,0 +1,16 @@
+---
+- hosts: all
+  gather_facts: yes
+  user: vagrant
+  sudo: yes
+
+  vars_files:
+    - vars/main.yml
+    - vars/mysql.yml
+
+  roles:
+    - common
+    - nodejs
+    - express
+    - php
+    - geerlingguy.mysql

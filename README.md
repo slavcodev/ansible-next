@@ -1,44 +1,44 @@
 Getting Started with Vagrant and Ansible
 ========================================
 
-1. Install [VirtualBox 4.3](https://www.virtualbox.org/wiki/Downloads)
-2. Install [Vagrant 1.3.5](http://downloads.vagrantup.com/)
+To use the vagrant file, you will need to have done the following:
+
+1. Download and Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+2. Download and Install [Vagrant](http://downloads.vagrantup.com/)
 3. Install [Ansible](http://www.ansibleworks.com/docs/intro_installation.html)
+4. Open a shell prompt (Terminal app on a Mac) and cd into the folder containing the `Vagrantfile`
+5. Run the following command to install the necessary Ansible roles for this profile: `$ ansible-galaxy install -r requirements.txt`
 
 Running
 -------
 Running and provisioning can be handled nicely:
 
 ```
-vagrant up
+$ vagrant up
+```
+
+or inject external variables into the VagrantFile during execution
+
+```
+$ ENV=local vagrant up
 ```
 
 You can SSH into the provisioned vm like so:
 
 ```
-vagrant ssh
+$ vagrant ssh
 ```
 
 And stop it:
 
 ```
-vagrant halt
+$ vagrant halt
 ```
 
 Done! You have a development environment with the latest Node.js.
 
 Ansible
 -------
-
-**Dependencies**
-
-- [geerlingguy.mysql](https://galaxy.ansible.com/list#/roles/435)
-
-**Installation**
-
-```
-$ ansible-galaxy install geerlingguy.mysql
-```
 
 Ansible is configured to run for the vagrant host
 and you can see the specified private IP in `playbooks/hosts`. 
@@ -81,3 +81,16 @@ VM Configuration
 ----------------
 For more on VM configuration options, check out the docs at
 [Vagrant](http://docs.vagrantup.com/v2/virtualbox/configuration.html)
+
+PHP: Built-in web server
+------------------------
+
+
+
+Use `0.0.0.0:8000` for accessing the CLI Web Server from remote machines.
+Don't use `$(hostname):8000`, because access from remote machines not works.
+
+```
+$ cd /vagrant
+$ php -S 0.0.0.0:8000
+```
