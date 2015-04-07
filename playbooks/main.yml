@@ -1,8 +1,10 @@
 ---
 - hosts: all
   user: vagrant
+  sudo: yes
 
   roles:
     - common
     - nodejs
     - express
+    - {role: geerlingguy.mysql}

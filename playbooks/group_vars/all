@@ -4,3 +4,14 @@ node_port: 3000
 web_project_name: demo
 express_project_name: demo
 express_base_route: /
+
+mysql_root_password: toor
+mysql_databases:
+  - name: tests
+    encoding: utf8
+    collation: utf8_general_ci
+mysql_users:
+  - name: dev
+    host: "%"
+    password: dev
+    priv: "tests.*:ALL"

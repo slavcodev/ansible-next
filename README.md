@@ -29,6 +29,17 @@ Done! You have a development environment with the latest Node.js.
 
 Ansible
 -------
+
+**Dependencies**
+
+- [geerlingguy.mysql](https://galaxy.ansible.com/list#/roles/435)
+
+**Installation**
+
+```
+$ ansible-galaxy install geerlingguy.mysql
+```
+
 Ansible is configured to run for the vagrant host
 and you can see the specified private IP in `playbooks/hosts`. 
 
