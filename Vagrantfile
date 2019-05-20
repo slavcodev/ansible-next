@@ -4,7 +4,7 @@
 require 'yaml'
 
 environment = ENV['ENV'] || 'development'
-config_file = './environments/' + environment + '.yaml'
+config_file = __dir__ + '/environments/' + environment + '.yaml'
 
 if !File.exist?(config_file)
   puts "Configuration file " + config_file + " missing!"
