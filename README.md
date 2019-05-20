@@ -85,8 +85,6 @@ For more on VM configuration options, check out the docs at
 PHP: Built-in web server
 ------------------------
 
-
-
 Use `0.0.0.0:8000` for accessing the CLI Web Server from remote machines.
 Don't use `$(hostname):8000`, because access from remote machines not works.
 
